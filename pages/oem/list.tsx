@@ -45,7 +45,7 @@ const ListPage: React.FC = () => {
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">OEM List</h1>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          <a href="/oem/add">ADD</a>
+          <a href="/oem/add">Add OEM</a>
         </button>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
