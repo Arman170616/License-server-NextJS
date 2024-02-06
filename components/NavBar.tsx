@@ -112,10 +112,10 @@ const NavBar: React.FC = () => {
             </div>
             <div className="hidden md:flex items-center space-x-1">
               {/* <a href="" className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold">Home</a> */}
-              <a href="/oem/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">OEM List</a>
-              <a href="/accounts/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Account List</a>
-              <a href="/oem-infos/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">OEM Infos List</a>
-              <a href="/device/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Device List</a>
+              <a href="/oem/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">OEM </a>
+              <a href="/accounts/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Account</a>
+              <a href="/oem-infos/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">OEM Infos</a>
+              <a href="/device/list" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Device</a>
             </div>
           </div>
           {/* <div className="hidden md:flex items-center space-x-3">
@@ -134,10 +134,10 @@ const NavBar: React.FC = () => {
       <div className={isMobileMenuOpen ? "" : "hidden mobile-menu"}>
         <ul>
           <li className="active"><a href="/" className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
-          <li><a href="/oem/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">OEM List</a></li>
-          <li><a href="/accounts/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Account List</a></li>
-          <li><a href="/oem-infos/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">OEM Infos List</a></li>
-          <li><a href="/device/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Device List</a></li>
+          <li><a href="/oem/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">OEM</a></li>
+          <li><a href="/accounts/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Account</a></li>
+          <li><a href="/oem-infos/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">OEM Infos</a></li>
+          <li><a href="/device/list" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Device</a></li>
         </ul>
       </div>
     </nav>
