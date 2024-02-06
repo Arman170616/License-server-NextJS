@@ -4,6 +4,7 @@ import NavBar from '../../components/NavBar';
 
 const ListPage: React.FC = () => {
   const [oemList, setOEMList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,10 +26,28 @@ const ListPage: React.FC = () => {
     fetchData();
   }, []);
 
+  const itemsPerPage = 10; // Adjust as needed
+  const totalPages = Math.ceil(oemList.length / itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    console.log(page);
+    
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = oemList.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <div>
       <NavBar />
-      <h1 className="text-2xl font-bold mb-4">OEM List</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">OEM List</h1>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <a href="/oem/add">ADD</a>
+        </button>
+      </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -57,13 +76,10 @@ const ListPage: React.FC = () => {
               <th scope="col" className="px-6 py-3">
                 Action
               </th>
-              {/* <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Edit</span>
-              </th> */}
             </tr>
           </thead>
           <tbody>
-            {oemList.map((oem: any) => (
+            {currentItems.map((oem: any) => (
               <tr key={oem.oem_no} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {oem.oem_no}
@@ -91,14 +107,27 @@ const ListPage: React.FC = () => {
                     Edit
                   </a>
                 </td>
-                {/* <td className="px-6 py-4">
-                  {new Date(oem.updated_at).toLocaleString()}
-                </td> */}
+
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <div className="flex justify-center mt-4">
+        {/* Pagination */}
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            className={`mx-1 px-3 py-1 border border-gray-300 rounded-md ${
+              currentPage === index + 1 ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'
+            }`}
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
     </div>
   );
 };
